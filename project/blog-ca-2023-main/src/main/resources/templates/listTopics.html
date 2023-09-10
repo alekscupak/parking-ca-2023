@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add new Topics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+<header th:insert="fragments/fragments.html :: header"> </header>
+<div class="container">
+  <h2>Parking</h2>
+  <p>The .table-striped class adds zebra-stripes to a table:</p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th th:text="ID" />
+      <th th:text="Space" />
+      <th th:text="Car"/>
+      <th th:text="Plate" />
+      <th th:text="FROM" />
+      <th th:text="TO" />
+      <th th:text="Paid" />
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="topic, iStat : ${topicPage.content}"
+        th:style="${iStat.odd}? 'font-weight: bold;'"
+        th:alt-title="${iStat.even}? 'even' : 'odd'">
+      <td th:text="${topic.id}" />
+      <td th:text="${topic.space}"/>
+      <td th:text="${topic.title}" />
+      <td th:text="${topic.header}" />
+      <td th:text="${topic.datefrom}" />
+      <td th:text="${topic.dateto}" />
+      <td th:text="${topic.paid}" />
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>
